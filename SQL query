@@ -1,0 +1,10 @@
+ Write an SQL query to remove duplicates from a table without using a temporary table.
+Ans. Here, we can use delete with alias and inner join. We will check for the equality of all the matching records and then remove the row with a higher EmpId.
+
+DELETE E1 FROM EmployeeDetails E1
+INNER JOIN EmployeeDetails E2 
+WHERE E1.EmpId > E2.EmpId 
+AND E1.FullName = E2.FullName 
+AND E1.ManagerId = E2.ManagerId
+AND E1.DateOfJoining = E2.DateOfJoining
+AND E1.City = E2.City;
